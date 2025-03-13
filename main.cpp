@@ -68,6 +68,21 @@ TEST(CandleTest, BodySizeNegative) {
   EXPECT_DOUBLE_EQ(candle.body_size(), 0.5);
 }
 
+TEST(CandleTest, IsRedTrue) {
+  Candle candle(1.5, 2.0, 0.5, 1.0);
+  EXPECT_TRUE(candle.is_red());
+}
+
+TEST(CandleTest, IsRedFalse) {
+  Candle candle(1.0, 2.0, 0.5, 1.5);
+  EXPECT_FALSE(candle.is_red());
+}
+
+TEST(CandleTest, IsRedEqual) {
+  Candle candle(1.0, 2.0, 0.5, 1.0);
+  EXPECT_FALSE(candle.is_red());
+}
+
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
