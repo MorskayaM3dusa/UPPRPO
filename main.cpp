@@ -83,6 +83,21 @@ TEST(CandleTest, IsRedEqual) {
   EXPECT_FALSE(candle.is_red());
 }
 
+TEST(CandleTest, IsGreenTrue) {
+  Candle candle(1.0, 2.0, 0.5, 1.5);
+  EXPECT_TRUE(candle.is_green());
+}
+
+TEST(CandleTest, IsGreenFalse) {
+  Candle candle(1.5, 2.0, 0.5, 1.0);
+  EXPECT_FALSE(candle.is_green());
+}
+
+TEST(CandleTest, IsGreenEqual) {
+  Candle candle(1.0, 2.0, 0.5, 1.0);
+  EXPECT_FALSE(candle.is_green());
+}
+
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
