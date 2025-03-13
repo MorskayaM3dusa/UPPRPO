@@ -38,6 +38,21 @@ TEST(CandleTest, ContainsOutsideRange) {
   EXPECT_FALSE(candle.contains(-0.5));
 }
 
+TEST(CandleTest, FullSizePositive) {
+  Candle candle(1.0, 2.0, 0.5, 1.5);
+  EXPECT_DOUBLE_EQ(candle.full_size(), 1.5);
+}
+
+TEST(CandleTest, FullSizeZero) {
+  Candle candle(1.0, 1.0, 1.0, 1.0);
+  EXPECT_DOUBLE_EQ(candle.full_size(), 0.0);
+}
+
+TEST(CandleTest, FullSizeNegative) {
+  Candle candle(1.0, 0.5, 2.0, 1.5);
+  EXPECT_DOUBLE_EQ(candle.full_size(), 1.5);
+}
+
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
