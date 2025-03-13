@@ -1,6 +1,7 @@
 ﻿#include <gtest/gtest.h>
 #include "candle.h"
 
+
 TEST(CandleTest, BodyContainsGreen) {
   Candle candle(1.0, 2.0, 0.5, 1.5);
   EXPECT_TRUE(candle.body_contains(1.2));
